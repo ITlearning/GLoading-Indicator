@@ -20,6 +20,7 @@ private struct Global_IndicatorSwiftUI: UIViewRepresentable {
 //        view.showButton()
 //    }
     
+    @available(iOS 13.0.0, *)
     public func makeUIView(context: Context) -> some UIView {
         return view
     }
@@ -34,17 +35,15 @@ public struct GLoading_Indicator {
     
     public static var instance = GLoading_Indicator()
     
-    private var indicatorView = Global_IndicatorSwiftUI()
-    
     public init() {
         
     }
     
-    public func show() {
-        indicatorView.show()
+    public static func show() {
+        Global_IndicatorSwiftUI.shared.show()
     }
     
-    public func hide() {
-        indicatorView.hide()
+    public static func hide() {
+        Global_IndicatorSwiftUI.shared.hide()
     }
 }
