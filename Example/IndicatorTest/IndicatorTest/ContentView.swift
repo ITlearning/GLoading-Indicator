@@ -16,7 +16,7 @@ struct ContentView: View {
                 .padding()
             
             Button(action: {
-                GLoading_Indicator.show(text: "불러오는 중이에요..!")
+                GLoading_Indicator.show(text: "안녕하세요 :)")
             }, label: {
                 Text("Open")
             })

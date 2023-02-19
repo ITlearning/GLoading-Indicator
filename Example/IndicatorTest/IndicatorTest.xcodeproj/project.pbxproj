@@ -14,7 +14,7 @@
 		F5EB599229A2112500365DC1 /* IndicatorTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EB599129A2112500365DC1 /* IndicatorTestTests.swift */; };
 		F5EB599C29A2112500365DC1 /* IndicatorTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EB599B29A2112500365DC1 /* IndicatorTestUITests.swift */; };
 		F5EB599E29A2112500365DC1 /* IndicatorTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EB599D29A2112500365DC1 /* IndicatorTestUITestsLaunchTests.swift */; };
-		F5EB59B629A22A2700365DC1 /* GLoading-Indicator in Frameworks */ = {isa = PBXBuildFile; productRef = F5EB59B529A22A2700365DC1 /* GLoading-Indicator */; };
+		F5EB59B929A22B0700365DC1 /* GLoading-Indicator in Frameworks */ = {isa = PBXBuildFile; productRef = F5EB59B829A22B0700365DC1 /* GLoading-Indicator */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5EB59B629A22A2700365DC1 /* GLoading-Indicator in Frameworks */,
+				F5EB59B929A22B0700365DC1 /* GLoading-Indicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +154,7 @@
 			);
 			name = IndicatorTest;
 			packageProductDependencies = (
-				F5EB59B529A22A2700365DC1 /* GLoading-Indicator */,
+				F5EB59B829A22B0700365DC1 /* GLoading-Indicator */,
 			);
 			productName = IndicatorTest;
 			productReference = F5EB597D29A2112200365DC1 /* IndicatorTest.app */;
@@ -229,7 +229,7 @@
 			);
 			mainGroup = F5EB597429A2112200365DC1;
 			packageReferences = (
-				F5EB59AD29A2120D00365DC1 /* XCRemoteSwiftPackageReference "GLoading-Indicator" */,
+				F5EB59B729A22B0700365DC1 /* XCRemoteSwiftPackageReference "GLoading-Indicator" */,
 			);
 			productRefGroup = F5EB597E29A2112200365DC1 /* Products */;
 			projectDirPath = "";
@@ -601,20 +601,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F5EB59AD29A2120D00365DC1 /* XCRemoteSwiftPackageReference "GLoading-Indicator" */ = {
+		F5EB59B729A22B0700365DC1 /* XCRemoteSwiftPackageReference "GLoading-Indicator" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ITlearning/GLoading-Indicator.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F5EB59B529A22A2700365DC1 /* GLoading-Indicator */ = {
+		F5EB59B829A22B0700365DC1 /* GLoading-Indicator */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F5EB59AD29A2120D00365DC1 /* XCRemoteSwiftPackageReference "GLoading-Indicator" */;
+			package = F5EB59B729A22B0700365DC1 /* XCRemoteSwiftPackageReference "GLoading-Indicator" */;
 			productName = "GLoading-Indicator";
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ITlearning/GLoading-Indicator.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "a5634bf97c3f3b5c3fe703b2d6a2e4046528fd3f"
+        "revision" : "a5634bf97c3f3b5c3fe703b2d6a2e4046528fd3f",
+        "version" : "1.0.0"
       }
     }
   ],
