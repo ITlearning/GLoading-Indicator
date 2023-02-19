@@ -12,7 +12,7 @@ Once you have your Swift package set up, adding the SDK as a dependency is as ea
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ITlearning/GLoading-Indicator"))
+    .package(url: "https://github.com/ITlearning/GLoading-Indicator")
 ]
 ```
 or `File` -> `Add Packages...` -> Search `https://github.com/ITlearning/GLoading-Indicator` -> Install
