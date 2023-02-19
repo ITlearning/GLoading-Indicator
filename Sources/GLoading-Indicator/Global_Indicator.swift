@@ -9,7 +9,6 @@ import UIKit
 
 internal class Global_Indicator: UIView {
 
-    
     public var closeAction: (() -> Void)?
     
     private let indicator: UIActivityIndicatorView = {
@@ -41,6 +40,8 @@ internal class Global_Indicator: UIView {
         return button
     }()
     
+    var effectView = UIVisualEffectView()
+    
     public init() {
         super.init(frame: UIScreen.main.bounds)
         self.setIndicatorUI()
@@ -48,9 +49,8 @@ internal class Global_Indicator: UIView {
     
     func setIndicatorUI(text: String = "") {
         
-        let effect = UIBlurEffect(style: .light)
-        let effectView = UIVisualEffectView(effect: effect)
-        
+        let effect = UIBlurEffect(style: .extraLight)
+        effectView.effect = effect
         effectView.frame = CGRect(x: 0, y: 0, width: 180, height: 100)
         
         indicatorView.layer.masksToBounds = true
@@ -107,7 +107,7 @@ internal class Global_Indicator: UIView {
     }
     
     
-    public func showIndicator(text: String = "") {
+    public func showIndicator(text: String = "", blurStyle: BlurStyle = .extraLight) {
         TMainAsync {
             
             let localeId = Locale.preferredLanguages.first
@@ -119,6 +119,19 @@ internal class Global_Indicator: UIView {
             self.indicatorLabel.sizeToFit()
             
             self.closeButton.setTitle(closeButtonText, for: .normal)
+            
+            var effect: UIBlurEffect
+            
+            switch blurStyle {
+            case .light:
+                effect = UIBlurEffect(style: .light)
+            case .extraLight:
+                effect = UIBlurEffect(style: .extraLight)
+            case .dark:
+                effect = UIBlurEffect(style: .dark)
+            }
+            
+            self.effectView.effect = effect
             
             self.keyWindow()?.addSubview(self)
             

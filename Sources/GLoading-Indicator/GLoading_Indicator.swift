@@ -7,8 +7,8 @@ private struct Global_IndicatorSwiftUI: UIViewRepresentable {
     
     var view = Global_Indicator()
     
-    func show(text: String = "", completion: @escaping (() -> Void)) {
-        view.showIndicator(text: text)
+    func show(text: String = "", blurStyle: BlurStyle = .extraLight, completion: @escaping (() -> Void)) {
+        view.showIndicator(text: text, blurStyle: blurStyle)
         
         view.closeAction = {
             completion()
@@ -35,8 +35,8 @@ public struct GLoading_Indicator {
         
     }
     
-    public static func show(text: String = "", dismissAction: @escaping (() -> Void)) {
-        Global_IndicatorSwiftUI.shared.show(text: text) {
+    public static func show(text: String = "", blurStyle: BlurStyle = .extraLight, dismissAction: @escaping (() -> Void)) {
+        Global_IndicatorSwiftUI.shared.show(text: text, blurStyle: blurStyle) {
             dismissAction()
         }
     }

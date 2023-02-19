@@ -53,7 +53,7 @@ struct ContentView: View {
 
 ### Open (Not Custom Text)
 ```swift
-GLoading_Indicator.show()
+GLoading_Indicator.show() { // (Close Button)Dismiss Action }
 ```
 
 Detects the language of the current device and changes the default language.
