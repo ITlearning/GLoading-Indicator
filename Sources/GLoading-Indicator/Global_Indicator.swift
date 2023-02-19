@@ -26,6 +26,7 @@ internal class Global_Indicator: UIView {
         let label = UILabel()
         label.textColor = .black
         label.text = "로딩중.."
+        label.numberOfLines = 0
         label.font = .systemFont(ofSize: 15)
         
         return label
@@ -44,10 +45,17 @@ internal class Global_Indicator: UIView {
         self.setIndicatorUI()
     }
     
-    func setIndicatorUI() {
-        let effect = UIBlurEffect(style: .light)
+    func setIndicatorUI(text: String = "") {
+        
+        let effect = UIBlurEffect(style: .extraLight)
         let effectView = UIVisualEffectView(effect: effect)
-        effectView.frame = indicatorView.bounds
+        effectView.frame = indicatorView.frame
+        
+        indicatorView.layer.masksToBounds = true
+        indicatorView.layer.cornerRadius = 5
+        indicatorView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+        indicatorView.clipsToBounds = true
+        
         indicatorView.addSubview(effectView)
         indicatorView.addSubview(indicator)
         indicatorView.addSubview(indicatorLabel)
@@ -57,11 +65,6 @@ internal class Global_Indicator: UIView {
         self.backgroundColor = .black.withAlphaComponent(0.7)
         
         closeButton.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
-        
-        indicatorView.layer.masksToBounds = true
-        indicatorView.layer.cornerRadius = 5
-        indicatorView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
-        indicatorView.clipsToBounds = true
         
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicatorLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -102,8 +105,13 @@ internal class Global_Indicator: UIView {
     }
     
     
-    public func showIndicator() {
+    public func showIndicator(text: String = "") {
         TMainAsync {
+            
+            
+            self.indicatorLabel.text = text == "" ? "로딩중..." : text
+            self.indicatorLabel.sizeToFit()
+
             self.keyWindow()?.addSubview(self)
             self.alpha = 0.0
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
