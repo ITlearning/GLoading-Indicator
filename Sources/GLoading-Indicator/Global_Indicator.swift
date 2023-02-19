@@ -49,7 +49,8 @@ internal class Global_Indicator: UIView {
         
         let effect = UIBlurEffect(style: .extraLight)
         let effectView = UIVisualEffectView(effect: effect)
-        effectView.frame = indicatorView.frame
+        
+        effectView.frame = CGRect(x: 0, y: 0, width: 180, height: 90)
         
         indicatorView.layer.masksToBounds = true
         indicatorView.layer.cornerRadius = 5
@@ -111,7 +112,7 @@ internal class Global_Indicator: UIView {
             
             self.indicatorLabel.text = text == "" ? "로딩중..." : text
             self.indicatorLabel.sizeToFit()
-
+            
             self.keyWindow()?.addSubview(self)
             self.alpha = 0.0
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
