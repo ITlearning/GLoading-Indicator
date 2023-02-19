@@ -125,10 +125,20 @@ internal class Global_Indicator: UIView {
             switch blurStyle {
             case .light:
                 effect = UIBlurEffect(style: .light)
+                self.indicatorLabel.textColor = .black
+                self.indicator.color = .black
+                self.backgroundColor = .black.withAlphaComponent(0.7)
             case .extraLight:
                 effect = UIBlurEffect(style: .extraLight)
+                self.indicatorLabel.textColor = .black
+                self.indicator.color = .black
+                self.backgroundColor = .black.withAlphaComponent(0.7)
             case .dark:
                 effect = UIBlurEffect(style: .dark)
+                self.indicatorLabel.textColor = .white
+                self.indicator.color = .white
+                self.closeButton.setTitleColor(UIColor.black, for: .normal)
+                self.backgroundColor = .black.withAlphaComponent(0.2)
             }
             
             self.effectView.effect = effect

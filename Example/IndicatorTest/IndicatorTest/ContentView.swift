@@ -16,7 +16,7 @@ struct ContentView: View {
                 .padding()
             
             Button(action: {
-                GLoading_Indicator.show(blurStyle: .light) {
+                GLoading_Indicator.show(blurStyle: .extraLight) {
                     // Cancel Button Click Action
                     // Example) Networking Stop, View Drawing Stop...
                     print("[@] Close Action On")
