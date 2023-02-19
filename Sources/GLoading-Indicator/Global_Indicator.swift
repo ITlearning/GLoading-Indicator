@@ -66,18 +66,18 @@ internal class Global_Indicator: UIView {
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicatorLabel.translatesAutoresizingMaskIntoConstraints = false
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
-        
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
         // Indicator AutoLayout
         indicator.startAnimating()
         
         NSLayoutConstraint.activate([
-            indicator.topAnchor.constraint(equalTo: indicatorView.topAnchor, constant: 10),
+            indicator.topAnchor.constraint(equalTo: indicatorView.topAnchor, constant: 30),
             indicator.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
         
         // Indicator Label AutoLayout
         NSLayoutConstraint.activate([
-            indicatorLabel.topAnchor.constraint(equalTo: indicator.bottomAnchor, constant: 10),
+            indicatorLabel.topAnchor.constraint(equalTo: indicator.bottomAnchor, constant: 30),
             indicatorLabel.centerXAnchor.constraint(equalTo: indicatorView.centerXAnchor)
         ])
         
@@ -91,7 +91,7 @@ internal class Global_Indicator: UIView {
         
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: indicatorView.bottomAnchor, constant: 20),
-            closeButton.centerXAnchor.constraint(equalTo: indicatorView.centerXAnchor),
+            closeButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             closeButton.widthAnchor.constraint(equalToConstant: 50),
             closeButton.heightAnchor.constraint(equalToConstant: 30)
         ])
