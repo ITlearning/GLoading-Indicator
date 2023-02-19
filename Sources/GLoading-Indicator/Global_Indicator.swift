@@ -47,10 +47,10 @@ internal class Global_Indicator: UIView {
     
     func setIndicatorUI(text: String = "") {
         
-        let effect = UIBlurEffect(style: .extraLight)
+        let effect = UIBlurEffect(style: .light)
         let effectView = UIVisualEffectView(effect: effect)
         
-        effectView.frame = CGRect(x: 0, y: 0, width: 180, height: 90)
+        effectView.frame = CGRect(x: 0, y: 0, width: 180, height: 100)
         
         indicatorView.layer.masksToBounds = true
         indicatorView.layer.cornerRadius = 5
