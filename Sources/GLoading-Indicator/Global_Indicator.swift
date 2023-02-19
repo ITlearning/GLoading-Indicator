@@ -35,7 +35,7 @@ internal class Global_Indicator: UIView {
     private let closeButton: UIButton = {
         let button = UIButton()
         button.setTitle("닫기", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         return button
     }()
     
@@ -105,8 +105,7 @@ internal class Global_Indicator: UIView {
     public func showIndicator() {
         TMainAsync {
             self.keyWindow()?.addSubview(self)
-            self.backgroundColor = .clear
-            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
                 self.backgroundColor = .black.withAlphaComponent(0.7)
                 self.indicatorView.alpha = 1.0
             })
