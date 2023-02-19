@@ -45,7 +45,7 @@ internal class Global_Indicator: UIView {
     }
     
     func setIndicatorUI() {
-        let effect = UIBlurEffect(style: .extraLight)
+        let effect = UIBlurEffect(style: .light)
         let effectView = UIVisualEffectView(effect: effect)
         effectView.frame = indicatorView.bounds
         indicatorView.addSubview(effectView)
@@ -54,12 +54,13 @@ internal class Global_Indicator: UIView {
         
         self.addSubview(indicatorView)
         self.addSubview(closeButton)
+        self.backgroundColor = .black.withAlphaComponent(0.7)
         
         closeButton.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
         
         indicatorView.layer.masksToBounds = true
         indicatorView.layer.cornerRadius = 5
-        indicatorView.backgroundColor = UIColor.white.withAlphaComponent(0.9)
+        indicatorView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
         indicatorView.clipsToBounds = true
         
         indicator.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +77,7 @@ internal class Global_Indicator: UIView {
         
         // Indicator Label AutoLayout
         NSLayoutConstraint.activate([
-            indicatorLabel.topAnchor.constraint(equalTo: indicator.bottomAnchor, constant: 30),
+            indicatorLabel.topAnchor.constraint(equalTo: indicator.bottomAnchor, constant: 15),
             indicatorLabel.centerXAnchor.constraint(equalTo: indicatorView.centerXAnchor)
         ])
         
@@ -105,23 +106,21 @@ internal class Global_Indicator: UIView {
         TMainAsync {
             self.keyWindow()?.addSubview(self)
             self.alpha = 0.0
-            
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
                 self.alpha = 1.0
-                self.backgroundColor = .black.withAlphaComponent(0.7)
+                
             })
         }
     }
     
     public func hideIndicator() {
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
-            self.backgroundColor = .black.withAlphaComponent(0.0)
-            self.alpha = 0.0
-        })
-        
-        TMainAsync(after: 0.4, handler: {
-            self.removeFromSuperview()
-        })
+        TMainAsync {
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
+                self.alpha = 0.0
+            }) { _ in
+                self.removeFromSuperview()
+            }
+        }
     }
     
     @objc private func dismissAction() {
