@@ -113,14 +113,14 @@ internal class Global_Indicator: UIView {
     }
     
     public func hideIndicator() {
-        TMainAsync {
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
-                self.backgroundColor = .black.withAlphaComponent(0.0)
-                self.alpha = 0.0
-            }) { _ in
-                self.removeFromSuperview()
-            }
-        }
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
+            self.backgroundColor = .black.withAlphaComponent(0.0)
+            self.alpha = 0.0
+        })
+        
+        TMainAsync(after: 0.4, handler: {
+            self.removeFromSuperview()
+        })
     }
     
     @objc private func dismissAction() {
