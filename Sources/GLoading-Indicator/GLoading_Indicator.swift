@@ -1,7 +1,7 @@
 import UIKit
 import SwiftUI
 
-public struct Global_IndicatorSwiftUI: UIViewRepresentable {
+private struct Global_IndicatorSwiftUI: UIViewRepresentable {
         
     static var shared = Global_IndicatorSwiftUI()
     
@@ -32,19 +32,19 @@ public struct Global_IndicatorSwiftUI: UIViewRepresentable {
 public struct GLoading_Indicator {
     //public private(set) var text = "Hello, World!"
     
-    static var instance = GLoading_Indicator()
+    public static var instance = GLoading_Indicator()
     
-    public var indicatorView = Global_IndicatorSwiftUI()
+    private var indicatorView = Global_IndicatorSwiftUI()
     
     public init() {
         
     }
     
-    func show() {
+    public func show() {
         indicatorView.show()
     }
     
-    func hide() {
+    public func hide() {
         indicatorView.hide()
     }
 }
