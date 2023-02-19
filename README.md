@@ -6,7 +6,7 @@ It's ready to use without any settings.
 # Installation
 ### SPM
 
-The [Swift Package Manager]: https://www.swift.org/package-manager/ is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but this SDK does support its use on supported platforms.
+The [Swift Package Manager](https://www.swift.org/package-manager/, "SPM") is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but this SDK does support its use on supported platforms.
 
 Once you have your Swift package set up, adding the SDK as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
 
