@@ -48,6 +48,9 @@ struct ContentView: View {
 ```swift
 GLoading_Indicator.show()
 ```
+
+Detects the language of the current device and changes the default language.
+
 ### Open (Custom Text)
 ```swift 
 GLoading_Indicator.show(text: "안녕하세요 :)")
