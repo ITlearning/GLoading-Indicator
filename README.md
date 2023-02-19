@@ -34,7 +34,11 @@ struct ContentView: View {
                 .padding()
             
             Button(action: {
-                GLoading_Indicator.show(text: "안녕하세요 :)")
+                GLoading_Indicator.show() { 
+                    // Cancel Button Click Action
+                    // Example) Networking Stop, View Drawing Stop...
+                    print("[@] Close Action On")
+                }
             }, label: {
                 Text("Open")
             })
