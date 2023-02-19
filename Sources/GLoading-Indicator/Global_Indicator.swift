@@ -105,9 +105,11 @@ internal class Global_Indicator: UIView {
     public func showIndicator() {
         TMainAsync {
             self.keyWindow()?.addSubview(self)
+            self.alpha = 0.0
+            
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
+                self.alpha = 1.0
                 self.backgroundColor = .black.withAlphaComponent(0.7)
-                self.indicatorView.alpha = 1.0
             })
         }
     }
@@ -119,7 +121,7 @@ internal class Global_Indicator: UIView {
         })
         
         TMainAsync(after: 0.4, handler: {
-            //self.removeFromSuperview()
+            self.removeFromSuperview()
         })
     }
     
