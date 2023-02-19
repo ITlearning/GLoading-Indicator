@@ -45,10 +45,10 @@ internal class Global_Indicator: UIView {
     }
     
     func setIndicatorUI() {
-        let blurEffect = UIBlurEffect(style: .light)
-        let visualEffectView = UIVisualEffectView(effect: blurEffect)
-        visualEffectView.frame = indicatorView.frame
-        indicatorView.addSubview(visualEffectView)
+        let effect = UIBlurEffect(style: .extraLight)
+        let effectView = UIVisualEffectView(effect: effect)
+        effectView.frame = indicatorView.bounds
+        indicatorView.addSubview(effectView)
         indicatorView.alpha = 0.0
         indicatorView.addSubview(indicator)
         indicatorView.addSubview(indicatorLabel)
@@ -57,8 +57,6 @@ internal class Global_Indicator: UIView {
         self.addSubview(closeButton)
         
         closeButton.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
-        
-        indicator.startAnimating()
         
         indicatorView.layer.masksToBounds = true
         indicatorView.layer.cornerRadius = 5
@@ -70,11 +68,11 @@ internal class Global_Indicator: UIView {
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
         
         // Indicator AutoLayout
-        
-        indicator.center = indicatorView.center
+        indicator.startAnimating()
         
         NSLayoutConstraint.activate([
             indicator.topAnchor.constraint(equalTo: indicatorView.topAnchor, constant: 10),
+            indicator.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
         
         // Indicator Label AutoLayout
