@@ -8,6 +8,6 @@ final class GLoading_IndicatorTests: XCTestCase {
         // results.
         //XCTAssertEqual(GLoading_Indicator().text, "Hello, World!")
         
-        GLoading_Indicator.show()
+        GLoading_Indicator.instance.show()
     }
 }
