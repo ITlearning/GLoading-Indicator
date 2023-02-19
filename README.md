@@ -34,7 +34,7 @@ struct ContentView: View {
                 .padding()
             
             Button(action: {
-                GLoading_Indicator.show() { 
+                GLoading_Indicator.show(blurStyle: .extraLight) { 
                     // Cancel Button Click Action
                     // Example) Networking Stop, View Drawing Stop...
                     print("[@] Close Action On")
@@ -53,14 +53,18 @@ struct ContentView: View {
 
 ### Open (Not Custom Text)
 ```swift
-GLoading_Indicator.show() { // (Close Button)Dismiss Action }
+GLoading_Indicator.show() { 
+    // (Close Button)Dismiss Action
+}
 ```
 
 Detects the language of the current device and changes the default language.
 
 ### Open (Custom Text)
 ```swift 
-GLoading_Indicator.show(text: "안녕하세요 :)")
+GLoading_Indicator.show(text: "안녕하세요 :)", blurStyle: .dark) {
+    // (Close Button)Dismiss Action
+}
 ```
 ### Close
 ```Swift
