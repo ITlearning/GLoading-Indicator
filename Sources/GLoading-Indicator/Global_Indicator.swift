@@ -32,21 +32,30 @@ internal class Global_Indicator: UIView {
     }()
     
     
+    private lazy var closeButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("닫기", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
+        return button
+    }()
+    
     public init() {
         super.init(frame: UIScreen.main.bounds)
         self.setIndicatorUI()
     }
     
     func setIndicatorUI() {
-        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffect = UIBlurEffect(style: .light)
         let visualEffectView = UIVisualEffectView(effect: blurEffect)
         visualEffectView.frame = indicatorView.frame
         indicatorView.addSubview(visualEffectView)
-        
+        indicatorView.alpha = 0.0
         indicatorView.addSubview(indicator)
         indicatorView.addSubview(indicatorLabel)
         
         self.addSubview(indicatorView)
+        self.addSubview(closeButton)
         
         indicator.startAnimating()
         
@@ -62,9 +71,7 @@ internal class Global_Indicator: UIView {
         // Indicator AutoLayout
         NSLayoutConstraint.activate([
             indicator.topAnchor.constraint(equalTo: indicatorView.topAnchor, constant: 10),
-            indicator.centerXAnchor.constraint(equalTo: indicator.centerXAnchor),
-            indicator.widthAnchor.constraint(equalToConstant: 50),
-            indicator.heightAnchor.constraint(equalToConstant: 50)
+            indicator.centerXAnchor.constraint(equalTo: indicator.centerXAnchor)
         ])
         
         // Indicator Label AutoLayout
@@ -78,7 +85,14 @@ internal class Global_Indicator: UIView {
             indicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             indicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             indicatorView.widthAnchor.constraint(equalToConstant: 180),
-            indicatorView.heightAnchor.constraint(equalToConstant: 90)
+            indicatorView.heightAnchor.constraint(equalToConstant: 100)
+        ])
+        
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: indicatorView.bottomAnchor, constant: 20),
+            closeButton.centerXAnchor.constraint(equalTo: indicatorView.centerXAnchor),
+            closeButton.widthAnchor.constraint(equalToConstant: 50),
+            closeButton.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     
@@ -107,6 +121,10 @@ internal class Global_Indicator: UIView {
                 self.removeFromSuperview()
             }
         }
+    }
+    
+    @objc private func dismissAction() {
+        hideIndicator()
     }
 }
 
