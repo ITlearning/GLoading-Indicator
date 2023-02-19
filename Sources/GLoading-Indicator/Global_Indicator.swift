@@ -111,7 +111,6 @@ internal class Global_Indicator: UIView {
             
             let localeId = Locale.preferredLanguages.first
             let deviceLocal = (Locale(identifier:localeId!).languageCode)!
-            
             let loadingText = deviceLocal == "ko" ? "로딩중..." : "Loading..."
             let closeButtonText = deviceLocal == "ko" ? "닫기" : "Close"
             

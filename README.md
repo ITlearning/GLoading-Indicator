@@ -1,5 +1,8 @@
 # GLoading-Indicator
 
+A globally available loading indicator within the SwiftUI.
+It's ready to use without any settings.
+
 # Installation
 ### SPM
 
