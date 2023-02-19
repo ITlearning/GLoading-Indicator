@@ -32,11 +32,10 @@ internal class Global_Indicator: UIView {
     }()
     
     
-    private lazy var closeButton: UIButton = {
+    private let closeButton: UIButton = {
         let button = UIButton()
         button.setTitle("닫기", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
-        button.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
         return button
     }()
     
@@ -57,6 +56,8 @@ internal class Global_Indicator: UIView {
         self.addSubview(indicatorView)
         self.addSubview(closeButton)
         
+        closeButton.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
+        
         indicator.startAnimating()
         
         indicatorView.layer.masksToBounds = true
@@ -69,9 +70,11 @@ internal class Global_Indicator: UIView {
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
         
         // Indicator AutoLayout
+        
+        indicator.center = indicatorView.center
+        
         NSLayoutConstraint.activate([
             indicator.topAnchor.constraint(equalTo: indicatorView.topAnchor, constant: 10),
-            indicator.centerXAnchor.constraint(equalTo: indicator.centerXAnchor)
         ])
         
         // Indicator Label AutoLayout
