@@ -1,18 +1,17 @@
 import UIKit
 import SwiftUI
 
-@available(iOS 13.0.0, *)
-public struct GLoading_Indicator: UIViewRepresentable {
-    
-    static public var instance = GLoading_Indicator()
+private struct Global_IndicatorSwiftUI: UIViewRepresentable {
+        
+    static var shared = Global_IndicatorSwiftUI()
     
     var view = Global_Indicator()
     
-    public func show() {
+    func show() {
         view.showIndicator()
     }
     
-    public func hide() {
+    func hide() {
         view.hideIndicator()
     }
     
@@ -22,5 +21,21 @@ public struct GLoading_Indicator: UIViewRepresentable {
     }
     
     public func updateUIView(_ uiView: UIViewType, context: Context) {
+    }
+}
+
+@available(iOS 13.0.0, *)
+public struct GLoading_Indicator {
+    
+    public init() {
+        
+    }
+    
+    public static func show() {
+        Global_IndicatorSwiftUI.shared.show()
+    }
+    
+    public static func hide() {
+        Global_IndicatorSwiftUI.shared.hide()
     }
 }

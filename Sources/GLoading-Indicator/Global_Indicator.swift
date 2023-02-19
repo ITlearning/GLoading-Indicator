@@ -119,7 +119,7 @@ internal class Global_Indicator: UIView {
         })
         
         TMainAsync(after: 0.4, handler: {
-            self.removeFromSuperview()
+            //self.removeFromSuperview()
         })
     }
     
