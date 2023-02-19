@@ -19,11 +19,6 @@ internal class Global_Indicator: UIView {
     
     private let indicatorView: UIView = {
         let indicatorView = UIView()
-        let blurEffect = UIBlurEffect(style: .dark)
-        let visualEffectView = UIVisualEffectView(effect: blurEffect)
-        visualEffectView.frame = .zero
-        indicatorView.addSubview(visualEffectView)
-        
         return indicatorView
     }()
     
@@ -43,8 +38,14 @@ internal class Global_Indicator: UIView {
     }
     
     func setIndicatorUI() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView.frame = indicatorView.frame
+        indicatorView.addSubview(visualEffectView)
+        
         indicatorView.addSubview(indicator)
         indicatorView.addSubview(indicatorLabel)
+        
         self.addSubview(indicatorView)
         
         indicator.startAnimating()
@@ -89,8 +90,9 @@ internal class Global_Indicator: UIView {
     public func showIndicator() {
         TMainAsync {
             self.keyWindow()?.addSubview(self)
-            
+            self.backgroundColor = .clear
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+                self.backgroundColor = .black.withAlphaComponent(0.7)
                 self.indicatorView.alpha = 1.0
             })
         }
@@ -99,6 +101,7 @@ internal class Global_Indicator: UIView {
     public func hideIndicator() {
         TMainAsync {
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
+                self.backgroundColor = .black.withAlphaComponent(0.0)
                 self.alpha = 0.0
             }) { _ in
                 self.removeFromSuperview()
