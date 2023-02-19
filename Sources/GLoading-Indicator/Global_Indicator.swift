@@ -49,7 +49,6 @@ internal class Global_Indicator: UIView {
         let effectView = UIVisualEffectView(effect: effect)
         effectView.frame = indicatorView.bounds
         indicatorView.addSubview(effectView)
-        indicatorView.alpha = 0.0
         indicatorView.addSubview(indicator)
         indicatorView.addSubview(indicatorLabel)
         
