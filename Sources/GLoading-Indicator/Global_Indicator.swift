@@ -9,11 +9,12 @@ import UIKit
 
 internal class Global_Indicator: UIView {
 
+    
+    public var closeAction: (() -> Void)?
+    
     private let indicator: UIActivityIndicatorView = {
         let indicatorView = UIActivityIndicatorView(frame: .zero)
-        
-        indicatorView.style = .gray
-        indicatorView.color = .gray
+        indicatorView.color = .black
         return indicatorView
     }()
     
@@ -120,6 +121,7 @@ internal class Global_Indicator: UIView {
             self.closeButton.setTitle(closeButtonText, for: .normal)
             
             self.keyWindow()?.addSubview(self)
+            
             self.alpha = 0.0
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
                 self.alpha = 1.0
@@ -139,6 +141,7 @@ internal class Global_Indicator: UIView {
     }
     
     @objc private func dismissAction() {
+        closeAction?()
         hideIndicator()
     }
 }
