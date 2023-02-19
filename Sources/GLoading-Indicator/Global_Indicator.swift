@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class Global_Indicator: UIView {
+internal class Global_Indicator: UIView {
 
     private let indicator: UIActivityIndicatorView = {
         let indicatorView = UIActivityIndicatorView(frame: .zero)

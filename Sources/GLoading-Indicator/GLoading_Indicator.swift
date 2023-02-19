@@ -31,9 +31,6 @@ private struct Global_IndicatorSwiftUI: UIViewRepresentable {
 
 @available(iOS 13.0.0, *)
 public struct GLoading_Indicator {
-    //public private(set) var text = "Hello, World!"
-    
-    public static var instance = GLoading_Indicator()
     
     public init() {
         

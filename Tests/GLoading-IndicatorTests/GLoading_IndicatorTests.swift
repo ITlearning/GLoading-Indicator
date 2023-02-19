@@ -7,6 +7,7 @@ final class GLoading_IndicatorTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         //XCTAssertEqual(GLoading_Indicator().text, "Hello, World!")
-        GLoading_Indicator.instance.show()
+        
+        GLoading_Indicator.show()
     }
 }
