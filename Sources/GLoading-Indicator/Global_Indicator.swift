@@ -109,9 +109,16 @@ internal class Global_Indicator: UIView {
     public func showIndicator(text: String = "") {
         TMainAsync {
             
+            let localeId = Locale.preferredLanguages.first
+            let deviceLocal = (Locale(identifier:localeId!).languageCode)!
             
-            self.indicatorLabel.text = text == "" ? "로딩중..." : text
+            let loadingText = deviceLocal == "ko" ? "로딩중..." : "Loading..."
+            let closeButtonText = deviceLocal == "ko" ? "닫기" : "Close"
+            
+            self.indicatorLabel.text = text == "" ? loadingText : text
             self.indicatorLabel.sizeToFit()
+            
+            self.closeButton.setTitle(closeButtonText, for: .normal)
             
             self.keyWindow()?.addSubview(self)
             self.alpha = 0.0
